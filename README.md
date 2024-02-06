@@ -18,7 +18,8 @@ Exp.
 •	Supports all IotHub protocols like Mqtt, Http, AMQP etc. for communication.
 •	Automatically takes care of arranging the messages as 256kb packet in size (when messages set as batch) to efficiently use the IotHub quotas thus avoiding the throttling.
 
-How to use this library (with 5 simple steps)?
+How to use this library (with 5 simple steps)
+
 	Step 1
                Get the connection string for the IotHub
 string iotHubConnString = "HostName=xxx.azure-devices.net;DeviceId=EdgeDevice;SharedAccessKey=xxxxxxxxxxxxxxxxxxx";
@@ -26,6 +27,7 @@ string iotHubConnString = "HostName=xxx.azure-devices.net;DeviceId=EdgeDevice;Sh
 	Step 2
 Create the IotHub Client from the connection string.
 IotHubClient iotHubClient = new IotHubClient(iotHubConnString);
+
 	Step 3
 Create the IotHub Communication module.
   IotHubCommunication iotHubCommunication = new IotHubCommunication(iotHubClient);
@@ -33,6 +35,7 @@ Create the IotHub Communication module.
 	Step 4
 Initialize the IotHub Communication module.
 iotHubCommunication.StartHubCommunicationAsync();
+
 	Step 5
 Start queuing your messages(json) to the internal queue, the component will automatically take care of rest of the things.
 iotHubCommunication.EnqueueMessage(jsonPayload);
